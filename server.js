@@ -3,6 +3,7 @@
  import dotenv from 'dotenv';
  import path from 'path';
 import connectDB from './config/db.js';
+import userRouter from './routes/userRoute.js';
 
  
 
@@ -18,6 +19,10 @@ import connectDB from './config/db.js';
 
  const Port = process.env.Port || 3000; 
  connectDB();
+
+
+ // Routes
+  app.use("/api/user", userRouter);
 
  app.get("/", (req, res) => {
      res.send("Hello World! Admin App");
